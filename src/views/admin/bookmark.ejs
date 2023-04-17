@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<h1 class="admin_title">Mes favoris</h1>
+<div class="container-home">
+            <%  if (session === undefined || session.length <= 0) { %>
+                    <p class="admin_text">Vous n'avez aucune randonnée dans les favoris actuellement</p>
+                <%  } else { %>
+        <% for (const trek of treks) { %>
+            <%    if (session.includes(trek.id)) { %>
+        <article class="trek-home">
+            <a href="/trek/<%= trek.id %>"><img class="trek-home_background" src="/images/assets/miniature/<%= trek.id %>.jpg" alt="cover">
+                <div class="trek-home_content">
+                    <p class="trek-home_name"><%= trek.name %></p>
+                    <p class="trek-home_difficult <%= trek.difficulty.name %>"><%= trek.difficulty.name %></p>
+                    <p class="trek-home_length">📏 <%= trek.distance / 1000%> km </>
+                    <p class="trek-home_time"><%= trek.time_length %> ⏱️</>
+                    <p class="trek-home_resume"><%= trek.resume %> </p>
+                    <p class="trek-home_summit"><%= trek.summit.name %></p>
+                </div>
+            </a>
+        </article>
+    <% } %>
+    <% }} %>
+</div>
+
+<%- include('../partials/footer') %>

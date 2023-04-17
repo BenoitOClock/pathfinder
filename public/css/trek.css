@@ -1,0 +1,760 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #717575;
+}
+
+
+/* === === Page Home === === */
+/* === Organisation de la page === */
+.container-treks {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2%;
+    justify-content: center;
+}
+/* === Gestion de l'article === */
+article {
+    position: relative;
+    margin: 1%;
+    overflow: hidden; /* Cache le résumé */
+    max-width: 650px;
+    height: 250px;
+}
+article:hover .trek-home_resume {
+    bottom: 0; /* Quand on survole l'image, le résumé prend sa place à bottom: 0 au lieu de -90 */
+}
+/* === Gestion du contenu === */
+/* == Image d'arriere plan == */
+.trek-home_background {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+/* == Contenu générique == */
+.trek-home_content {
+    color: white;
+    text-shadow: 2px 2px 2px rgba(206,89,55,0);
+}
+/* == Résumé de l'article == */
+.trek-home_resume {
+    position: absolute;
+    left: 0;
+    bottom: -90px; /* Caché à -90 par défaut */
+    padding: 10px;
+    width: 100%;
+    height: 90px;
+    transition: bottom 0.3s ease-in-out; /* Transition de l'apparition du résumé */
+    pointer-events: none; /* Permet de toujours avoir la main sur l'image pour son opacité */
+    background-color: black;
+    opacity: 0.6;
+    font-size: 0.7em;
+}
+/* == Titre == */
+.trek-home_name {
+    position: absolute;
+    top: 23%;
+    left: 50%;
+    transform: translateX(-50%); /* Permet de redécaler de la moitié de sa taille vers la gauche pour avoir un centrage parfait */
+    padding: 5px 10px;
+    pointer-events: none; /* Désactive les événements de souris sur le texte */
+    background-color: #595959;
+    box-shadow: 3px 3px 12px #444444;
+    -webkit-box-shadow: 3px 3px 12px #444444;
+    -moz-box-shadow: 3px 3px 12px #444444;
+    border: 4px solid #FFFFFF;
+    border-radius: 24px;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    color: #FFFFFF;
+    text-align: center;
+    opacity: 0.7;
+}
+/* == Durée de la rando == */
+.trek-home_time {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px 10px;
+    width: 50%;
+    pointer-events: none;
+    background-color: rgb(0, 126, 172);
+    border-radius: 0 0 8px 0;
+    opacity: 0.8;
+    text-align: right;
+}
+/* == Distance de la rando == */
+.trek-home_length {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5px 10px;
+    width: 50.1%;
+    pointer-events: none;
+    background-color: rgb(0, 126, 172);
+    border-radius: 0px 0 0 8px;
+    opacity: 0.8;
+    text-align: left;
+}
+/* == Massif == */
+.trek-home_summit, .trek-home_difficult {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+    width: 40%;
+    pointer-events: none;
+    background-color: rgb(148, 113, 113);
+    border-radius: 0 8px 0 8px;
+    opacity: 0.8;
+    font-size: 0.8em;
+    font-weight: 700;
+    text-align: center;
+}
+/* == Difficulté == */
+.trek-home_difficult {
+    width: 25%;
+    left: 0;
+    border-radius: 8px 0 8px 0;
+}
+
+
+/* === === Page Trek === === */
+/* === Organisation de la page === */
+.container-trek {
+    display: flex;
+    flex-direction: column;
+    margin: 3% auto;
+    border: 2px solid black;
+    width: 80%;
+    max-width: 1500px;
+}
+.no-trek {
+    padding-top: 2em;
+    color: black;
+    font-weight: 700;
+}
+
+/* === Header === */
+/* == Container */
+.trek_header {
+    position: relative;
+}
+/* == Arrière plan == */
+.trek_header-img {
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+/* == Titre et détails */
+.trek_header-text {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 60%;
+    height: 20%;
+}
+/* = Titre = */
+.trek_title {
+    padding: 5px 10px;
+    width: fit-content;
+    background-color: rgba(79, 79, 79, 0.6);
+    border: 2px solid black;
+    border-radius: 24px;
+    font-weight: 700;
+    font-style: italic;
+}
+/* == Tags == */
+.header_tag {
+    position: absolute;
+    top: 5%;
+    left: 3%;
+    height: 30%;
+}
+.trek_tag, .trek_difficult {
+    height: 20%;
+}
+/* == Icone favori == */
+.header_favorite-icon {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 40px;
+}
+
+/* === Main === */
+/* == Container == */
+.trek_main {
+    display: flex;
+}
+/* == Localisation et massif == */
+.trek_localisation {
+    margin: 2% 4% 0;
+    width: fit-content;
+    border-bottom: 2px rgb(68, 68, 68) solid;
+}
+/* == Organisation des infos == */
+.trek_main-text {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+}
+/* = En tête = */
+.trek_main-text-head {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    border-bottom: 1px solid rgb(6, 6, 6);
+}
+/* = Description = */
+.trek_main-text_title-description {
+    text-decoration: underline;
+    padding-bottom: 10px;
+}
+.trek_main-text_description {
+    text-align: justify;
+}
+/* = coordonnées GPS et fichier GPX = */
+.trek_main-foot {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 15px 0;
+}
+
+/* === Photos === */
+/* == Groupe photos == */
+.main_photos, .main_photos-bis {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    padding: 1%;
+}
+/* == Lien voir plus == */
+.main_photos_link {
+    display: block;
+    margin: 10px 0;
+    color: rgb(22, 35, 2);
+    font-size: 1.3em;
+    text-align: center;
+}
+/* == Détail d'une photo == */
+.main_photos_photo {
+    padding: 10px;
+}
+
+
+/* === === Page Photos === === */
+/* === Organisation de la page === */
+.container-photos {
+    width: 80%;
+    max-width: 1500px;
+    margin: 80px auto;
+}
+/* === Main === */
+/* == En tête == */
+/* = Titre = */
+.photos_title {
+    display: block;
+    text-align: center;
+    padding-bottom: 3%;
+}
+/* == Tags et retour == */
+.photos_tag_and_back {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3%;
+}
+/* Organisation des tags */
+.photos_tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+/* = Retour = */
+.photos_back {
+    padding: 5px 10px;
+    background-color: #595959;
+    box-shadow: 3px 3px 12px #444444;
+    -webkit-box-shadow: 3px 3px 12px #444444;
+    -moz-box-shadow: 3px 3px 12px #444444;
+    border: 4px solid #FFFFFF;
+    border-radius: 24px;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    color: #FFFFFF;
+    font-size: 1.3em;
+    text-align: center;
+    text-decoration: none;
+}
+.photos_back:hover {
+    padding: 5px 10px;
+    background-color: #343434;
+    box-shadow: 1px 1px 4px #777777;
+    -webkit-box-shadow: 1px 1px 4px #777777;
+    -moz-box-shadow: 1px 1px 4px #777777;
+}
+
+/* === Photos === */
+/* == Groupe photos == */
+.photos_photos, .photos_photos-bis {
+    display: grid;
+    align-items: center;
+    padding-bottom: 10%;
+}
+/* == Détail d'une photo == */
+.photos_photo {
+    width: 90%;
+    border-radius: 10px;
+    margin: 2% auto;
+}
+
+/* === === Gestion des modals de photos === === */
+/* === Boîte principale === */
+.modal {
+    display: none; /* Masquez la boîte de dialogue par défaut */
+    position: fixed; /* Positionnement absolu */
+    left: 0;
+    top: 0;
+    z-index: 1; /* Placez la boîte de dialogue en haut de tous les autres éléments */
+    width: 100%; /* Largeur totale */
+    height: 100%; /* Hauteur totale */
+  }
+
+/* === Style de la photo agrandie === */
+#modal-image {
+    display: block; /* Afficher l'image */
+    position: absolute; /* Centre l'image */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+}
+
+/* Style de l'élément de fond de la boîte de dialogue modale */
+#modal-background {
+    position: fixed;
+    z-index: -1; /* Pour qu'il reste en dessous de la boîte de dialogue */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8); /* Couleur de fond avec opacité à 0.8 */
+  }
+
+
+/* === === Gestion des icones déscriptifs avec leur texte === === */
+/* === Icones déscriptif (duree, dstance...) === */
+/* == Position du texte == */
+.main-text-head_length,
+.main-text-head_time-length,
+.main-text-head_boucle,
+.main-text-head_denivele,
+.main-text-head_min,
+.main-text-head_max,
+.trek_foot_gps,
+.trek_foot_gpx-link {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    align-items: center;
+}
+.trek_foot_gpx-link {
+    align-items: center;
+    color: black;
+}
+/* == Icones == */
+.main-text-head_length > img,
+.main-text-head_time-length > img,
+.main-text-head_boucle > img,
+.main-text-head_denivele > img,
+.main-text-head_min > img,
+.main-text-head_max > img,
+.trek_foot_gps > img,
+.trek_foot_gpx-img {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+/* === Icones de difficulté === */
+/* == Gestion des couleurs == */
+.facile {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+.Facile {
+    background-color: green;
+}
+.Modérée {
+    background-color: orange;
+}
+.Difficile {
+    background-color: red;
+}
+.difficile {
+    background-color: rgb(68, 68, 68);
+}
+
+/* === Icones des tags === */
+/* == Configuration des tags == */
+.tag, .trek_difficult {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 15px 10px 0;
+    margin: 0 15px 10px 0;
+    width: fit-content;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 9px;
+}
+.tag_icone {
+    align-items: center;
+    padding-right: 5px;
+    width: 35px;
+    height: 25px;
+}
+/* == couleur des tags == */
+.Cascade, .Lac {
+    background-color: rgb(17, 126, 235);
+}
+.Neige {
+    background-color: white;
+}
+.Couché {
+    background-color: goldenrod;
+}
+.Bivouac {
+    background-color: rgb(45, 45, 45);
+}
+.fou {
+    background-color: rgb(84, 55, 174);
+}
+.Randonnée {
+    background-color: rgb(231, 214, 36);
+}
+.Trail {
+    background-color: rgb(184, 76, 10);
+}
+.Promenade, .Familiale {
+    background-color: rgb(5, 93, 5);
+}
+
+.trek_tag + .facile,
+.trek_tag + .Facile,
+.trek_tag + .Modérée,
+.trek_tag + .Difficile,
+.trek_tag + .difficile {
+    display: none;
+}
+
+
+/* === === === Media Query === === === */
+@media screen and (max-width: 775px) {      /* Jusqu'à 775px */
+/* === === Page Home === === */
+/* === Gestion de l'article */
+article {
+    width: 90%;
+    margin-bottom: 20px; /* Espacement vertical des articles */
+}
+/* === Gestion du contenu === */
+/* == Contenu générique == */
+.trek-home_content {
+    font-size: 0.7em;
+}
+/* == Résumé de l'article == */
+.trek-home_resume {
+    display: none; /* On cache le résumé pour la version mobile */
+}
+
+/* === === Page Trek === === */
+.no-trek {
+    font-size: 0.9rem;
+}
+/* === Header === */
+/* == Tags == */
+.trek_tag, .trek_difficult {
+    font-size: 0.7em;
+}
+.trek_tag_icone {
+    width: 15px;
+    height: 10px;
+}
+/* == Titre et détails */
+/* = Titre = */
+.trek_title {
+    font-size: 1em;
+}
+/* == Icone favori == */
+.header_favorite-icon {
+    width: 40px;
+}
+/* === Main === */
+.container-trek {
+width: 100%;
+border: hidden;
+}
+/* == Container == */
+.trek_main {
+    flex-direction: column;
+}
+/* == Localisation et massif == */
+.trek_localisation {
+    font-size: 0.8em;
+}
+/* == Organisation des infos == */
+/* = Description = */
+.trek_main-text_description {
+/* Gère le scroll sur la description pour ne pas avoir un texte immense */
+    height: 400px; 
+    overflow: auto;
+    border-bottom: 1px solid black;
+}
+/* = Carte GPX = */
+.trek_foot_qr-link {
+    display: none;
+}
+/* === Photos === */
+/* == Container photos == */
+.trek_main_photos {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+}
+/* == Groupe photos == */
+.main_photos-bis {
+    grid-template-columns: repeat(1, 1fr);
+}
+.main_photos-bis a:nth-of-type(n+4) {
+    display: none; /* On désactive la visibilité au dessus de 3 photos */
+}
+/* == Liens vers les photos desktop */
+.desktop-link {
+    display: none;
+}
+
+/* === === Page Photos === === */
+/* === Main === */
+/* == En tête == */
+/* = Titre = */
+.photos_title {
+    font-size: 2em;
+}
+/* == Tags et retour == */
+.photos_tag_and_back {
+    flex-direction: column-reverse;
+}
+.photos_tag, .photos_back {
+    font-size: 1.1em;
+}
+
+
+/* === === Gestion des modals de photos === === */
+/* === Style de la photo agrandie === */
+#modal-image {
+    width: 95%;
+}
+}
+
+/* =============================================================== */
+@media screen and (min-width: 776px) {      /* A partir de 776px */
+/* === === Page Home === === */
+/* === Gestion de l'article */
+article {
+    width: 47%;
+    min-width: 480px;
+}
+/* === Gestion du contenu === */
+/* == Contenu générique == */
+.trek-home_content {
+    font-size: 0.9em;
+}
+/* == Image d'arriere plan == */
+.trek-home_background {
+    opacity: 0.8;   /* Opacité seulement pour les versions desktop */
+    transition: opacity 0.3s ease-in-out; /* Transition de l'opacité qui repasse à 1 */
+}
+.trek-home_background:hover {
+    opacity: 1
+}
+/* == Durée et distance de la rando == */
+.trek-home_time, .trek-home_length {
+    display: none;  /* On masque la durée et la distance pour les versions desktop */
+}
+
+/* === === Page Trek === === */
+.no-trek {
+    font-size: 1.5rem;
+}
+/* === Header === */
+/* == Tags == */
+.trek_tag, .trek_difficult {
+    font-size: 0.8em;
+}
+.trek_tag_icone {
+    width: 20px;
+    height: 15px;
+}
+/* == Titre et détails */
+/* = Titre = */
+.trek_title {
+    font-size: 1.7em;
+}
+/* == Icone favori == */
+.header_favorite-icon {
+    width: 50px;
+}
+/* === Main === */
+/* == Container == */
+.trek_main {
+    flex-direction: column;
+}
+/* == Localisation et massif == */
+.trek_localisation {
+    font-size: 0.9em;
+}
+/* === Photos === */
+/* == Groupe photos == */
+.main_photos {
+    grid-template-columns: repeat(2, 1fr);
+}
+.main_photos a:nth-of-type(n+4) {
+    display: grid; /* On active la visibilité au dessus de 3 photos */
+}
+/* == Lien voir plus == */
+.main_photos_link {
+    display: none;
+}
+/* == Liens vers les photos mobiles */
+.mobile-link {
+    display: none;
+}
+
+/* === === Page Photos === === */
+/* === Main === */
+/* == En tête == */
+/* = Titre = */
+.photos_title {
+    font-size: 2.5em;
+}
+/* == Tags et retour == */
+.photos_tag_and_back {
+    justify-content: space-between;
+    padding-right: 10%;
+}
+.photos_tag, .photos_back {
+    font-size: 1.1em;
+}
+/* === Photos === */
+/* == Groupe photos == */
+.photos_photos {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* === === Gestion des modals de photos === === */
+/* === Style de la photo agrandie === */
+#modal-image {
+    width: 85%;
+}
+}
+
+/* =============================================================== */
+@media screen and (min-width: 1200px) {      /* A partir de 1200px */
+/* === === Page Home === === */
+/* === Gestion du contenu === */
+/* == Contenu générique == */
+.trek-home_content {
+    font-size: 1.1em;
+}
+
+/* === === Page Trek === === */
+/* === Header === */
+/* == Tags == */
+.trek_tag, .trek_difficult {
+    font-size: 1em;
+}
+.trek_tag_icone {
+    width: 25px;
+    height: 20px;
+}
+/* == Titre et détails */
+/* = Titre = */
+.trek_title {
+    font-size: 2.6em;
+}
+/* == Icone favori == */
+.header_favorite-icon {
+    width: 60px;
+}
+/* === Main === */
+/* == Container == */
+.trek_main {
+    flex-direction: row;
+}
+/* == Localisation et massif == */
+.trek_localisation {
+    font-size: 1em;
+}
+/* == Organisation des infos == */
+.trek_main-text {
+    width: 100%;
+    height: 100%; /* Permet de finir le contour de .trek_main apres ce bloc grace à la fonction js */
+}
+/* = En tête = */
+.trek_main-text-head {
+    font-size: 1.1em;
+}
+/* === Photos === */
+/* == Container photos == */
+.trek_main_photos {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+/* == Groupe photos == */
+.main_photos {
+    grid-template-columns: repeat(1, 1fr);
+    /* height: 100%;  En questionnement: Les 4 photos espacées sur la hauteur ou assemblées en haut avec un possible grand trou */
+    overflow: hidden;
+}
+.main_photos a:nth-of-type(n+5) {
+    display: none;
+}
+/* == Lien voir plus == */
+.main_photos_link {
+display: block;
+}
+
+/* === === Page Photos === === */
+/* === Main === */
+/* == Tags et retour == */
+.photos_tag, .photos_back {
+    font-size: 1.4em;
+}
+/* === Photos === */
+/* == Groupe photos == */
+.photos_photos {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* === === Gestion des modals de photos === === */
+/* === Boîte principale === */
+.modal {
+    display: none; /* Masquez la boîte de dialogue par défaut */
+    position: fixed; /* Positionnement absolu */
+    left: 0;
+    top: 0;
+    z-index: 1; /* Placez la boîte de dialogue en haut de tous les autres éléments */
+    width: 100%; /* Largeur totale */
+    height: 100%; /* Hauteur totale */
+  }
+
+/* === === Gestion des modals de photos === === */
+/* === Style de la photo agrandie === */
+#modal-image {
+    width: 75%;
+}
+}
+

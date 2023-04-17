@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+
+<% if (successMessage) { %>
+    <div class="locals-message succes">
+      <%= successMessage %>
+    </div>
+  <% } %>
+<div class="container-treks">
+    <% treks.forEach(trek => { %>
+        <article class="trek-home" data-set-tag="<%= trek.tags.map(tag => tag.id).join(' ') %>">
+            <a href="/trek/<%= trek.id %>"><img class="trek-home_background" src="/images/assets/miniature/<%= trek.id %>.jpg" alt="cover">
+                <div class="trek-home_content">
+                    <p class="trek-home_name"><%= trek.name %></p>
+                    <p class="trek-home_difficult <%= trek.difficulty.name %>"><%= trek.difficulty.name %></p>
+                    <p class="trek-home_length">📏 <%= trek.distance / 1000%> km </>
+                    <p class="trek-home_time"><%= trek.time_length %> ⏱️</>
+                    <p class="trek-home_resume"><%= trek.resume %> </p>
+                    <p class="trek-home_summit"><%= trek.summit.name %></p>
+                </div>
+            </a>
+        </article>
+    <% }) %>
+</div>
+
+<%- include('partials/footer') %>

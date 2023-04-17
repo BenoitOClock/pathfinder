@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+ <!--Politique sécurité -->
+    <meta http-equiv="Content-Security-Policy" content=""
+frame-src "https://visugpx.com/"; 
+script-src 'report-sample' 'self'; 
+style-src 'report-sample' 'self'; 
+object-src 'none'; 
+base-uri 'self'; 
+connect-src 'self'; 
+font-src 'self' 'https://fonts.google.com/'; 
+img-src 'self'; 
+manifest-src 'self'; 
+media-src 'self'; 
+report-uri https://642958aaa8c857fc51ebf8aa.endpoint.csper.io/?v=0; 
+worker-src 'none';">
+ <!--Politique sécurité -->
+
+
+    <link rel="icon" href="/images/favicon.png" type="image/png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/trek.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <% if (locals.meta) { %>
+    <title>pathFinder : <%= meta %></title>
+    <% } else { %>
+    <title>pathFinder</title>
+    <% } %>
+  </head>
+  <body>
+    <header class="header__large">
+        <nav class="header_up">
+          <div class="header__left">
+            <a class="header__link" href="/">Accueil</a>
+            <a class="header__link">Portfolio</a>
+            <a href="https://github.com/L-Caro/Blog-rando" target="_blank" class="header__link">GitHub du projet</a>
+          </div>
+          <div class="header__right">
+            <% if (locals.user) { %>
+                <a class="header__link" href="/bookmark">Mes randos</a>
+                <a class="header__link" href="/profil">Mon profil</a>
+                <a class="header__link" href="/logout">Se déconnecter</a>
+                <% } else { %>
+                  <a class="header__link" href="/signup">S'inscrire</a>
+                  <a class="header__link" href="/login">Se connecter</a>
+              <% } %>
+          </div>
+        </nav>
+          <div class="header_down">
+            <div class="header__menu_dropdown dropdown__link">
+              <a class="hover__link" href="#">&#9207; Filter par tag &#9207;</a>
+              <div class="dropdown">
+                <label for="type-promenade">
+                  <input type="radio" slot="radio" name="hike_type" id="type-promenade" value="6">
+                  <span class="slider"></span>
+                  Promenade</label>
+                <label for="type-familiale">
+                  <input type="radio" slot="radio" name="hike_type" id="type-familiale" value="10">
+                  <span class="slider"></span>
+                  Familiale</label>
+                <label for="type-randonnee">
+                  <input type="radio" slot="radio" name="hike_type" id="type-randonnee" value="4">
+                  <span class="slider"></span>
+                  Randonnée</label>
+                <label for="type-trail">
+                  <input type="radio" slot="radio" name="hike_type" id="type-trail" value="5">
+                  <span class="slider"></span>
+                  Trail</label>
+
+                <label class="type-end" for="type-bivouac">
+                  <input type="checkbox" slot="radio" name="" id="type-bivouac" value="7">
+                  <span class="slider"></span>
+                  Bivouac</label>
+                <label for="type-lac">
+                  <input type="checkbox" slot="radio" name="" id="type-lac" value="1">
+                  <span class="slider"></span>
+                  Lac</label>
+                <label for="type-neige">
+                  <input type="checkbox" slot="radio" name="" id="type-neige" value="2">
+                  <span class="slider"></span>
+                  Neige</label>
+                <label for="type-cascade">
+                  <input type="checkbox" slot="radio" name="" id="type-cascade" value="3">
+                  <span class="slider"></span>
+                  Cascade</label>
+                <label for="type-coucheDeSoleil">
+                  <input type="checkbox" slot="radio" name="" id="type-coucheDeSoleil" value="9">
+                  <span class="slider"></span>
+                  Sunset</label>
+                <label for="type-defi">
+                  <input type="checkbox" slot="radio" name="" id="type-defi" value="8">
+                  <span class="slider"></span>
+                  Défi fou</label>
+              </div>
+            </div>
+            <div class="header__search">
+              <div class="header__search-button">
+                <input class="search-button" type="text" name="search" id="search" placeholder="Rechercher une rando"/>
+                <button class="search-submit" type="submit">✔️</button>
+              </div>
+            </div>
+            <div class="header__menu_dropdown dropdown__link">
+              <a class="hover__link" href="#">&#9207; Filtrer par difficulté &#9207;</a>
+              <div class="dropdown">
+                <label for="very-easy">
+                  <input type="radio" slot="radio" name="difficult" id="very-easy" value="11">
+                  <span class="slider"></span>
+                  Très facile</label>
+                <label for="easy">
+                  <input type="radio" slot="radio" name="difficult" id="easy" value="12">
+                  <span class="slider"></span>
+                  Facile</label>
+                <label for="moderate">
+                  <input type="radio" slot="radio" name="difficult" id="moderate" value="13">
+                  <span class="slider"></span>
+                  Modérée</label>
+                <label for="hard">
+                  <input type="radio" slot="radio" name="difficult" id="hard" value="14">
+                  <span class="slider"></span>
+                  Difficile</label>
+                <label for="very-hard">
+                  <input type="radio" slot="radio" name="difficult" id="very-hard" value="15">
+                  <span class="slider"></span>
+                  Très difficile</label>
+              </div>
+            </div>
+          </div>
+    </header>
+    <div class="header__small">
+      <label id="mySidenav" class="sidenav">                        <!-- id pour javascript | class pour CSS --> 
+        <a id="closeBtn" href="#" class="close">&times;</a>     <!-- petite croix de fermeture -->
+          <div class="header__small__menus">
+            <div class="small__menu__git">
+              <a href="/" class="header__small__link">Accueil</a>
+              <a class="header__small__link">Portfolio</a>
+              <a href="https://github.com/L-Caro/Blog-rando" target="_blank" class="header__small__link">GitHub du projet</a>
+            </div>
+            <div class="small__menu__log">
+              <% if (locals.user) { %>
+                <a class="header__small__link" href="/bookmark">Mes randos</a>
+                <a class="header__small__link" href="/profil">Mon profil</a>
+                <a class="header__small__link" href="/logout">Se déconnecter</a>
+              <% } else { %>
+                <a class="header__small__link" href="/signup">S'inscrire</a>
+                <a class="header__small__link" href="/login">Se connecter</a>
+              <% } %>
+            </div>
+          </div>
+      </label>
+      <!-- Icone burger -->
+      <div class="header__small__up">
+        <a href="#" class="burger-icon" id="openBtn">
+          <span class="burger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </a>
+          <div class="header__menu_dropdown small__dropdown__link">
+            <a class="hover__link" href="#">&#9207; Tag &#9207;</a>
+            <div class="dropdown">
+              <label for="type-promenade">
+                <input type="radio" slot="radio" name="hike_type" id="type-promenade" value="6">
+                <span class="slider"></span>
+                Promenade</label>
+              <label for="type-familiale">
+                <input type="radio" slot="radio" name="hike_type" id="type-familiale" value="10">
+                <span class="slider"></span>
+                Familiale</label>
+              <label for="type-randonnee">
+                <input type="radio" slot="radio" name="hike_type" id="type-randonnee" value="4">
+                <span class="slider"></span>
+                Randonnée</label>
+              <label for="type-trail">
+                <input type="radio" slot="radio" name="hike_type" id="type-trail" value="5">
+                <span class="slider"></span>
+                Trail</label>
+
+              <label class="type-end" for="type-bivouac">
+                <input type="checkbox" slot="radio" name="" id="type-bivouac" value="7">
+                <span class="slider"></span>
+                Bivouac</label>
+              <label for="type-lac">
+                <input type="checkbox" slot="radio" name="" id="type-lac" value="1">
+                <span class="slider"></span>
+                Lac</label>
+              <label for="type-neige">
+                <input type="checkbox" slot="radio" name="" id="type-neige" value="2">
+                <span class="slider"></span>
+                Neige</label>
+              <label for="type-cascade">
+                <input type="checkbox" slot="radio" name="" id="type-cascade" value="3">
+                <span class="slider"></span>
+                Cascade</label>
+              <label for="type-coucheDeSoleil">
+                <input type="checkbox" slot="radio" name="" id="type-coucheDeSoleil" value="9">
+                <span class="slider"></span>
+                Sunset</label>
+              <label for="type-defi">
+                <input type="checkbox" slot="radio" name="" id="type-defi" value="8">
+                <span class="slider"></span>
+                Défi fou</label>
+            </div>
+          </div>
+          <div class="header__menu_dropdown small__dropdown__link">
+            <a class="hover__link" href="#">&#9207; Difficulté &#9207;</a>
+            <div class="dropdown">
+              <label for="very-easy">
+                <input type="radio" slot="radio" name="difficult" id="very-easy" value="11">
+                <span class="slider"></span>
+                Très facile</label>
+              <label for="easy">
+                <input type="radio" slot="radio" name="difficult" id="easy" value="12">
+                <span class="slider"></span>
+                Facile</label>
+              <label for="moderate">
+                <input type="radio" slot="radio" name="difficult" id="moderate" value="13">
+                <span class="slider"></span>
+                Modérée</label>
+              <label for="hard">
+                <input type="radio" slot="radio" name="difficult" id="hard" value="14">
+                <span class="slider"></span>
+                Difficile</label>
+              <label for="very-hard">
+                <input type="radio" slot="radio" name="difficult" id="very-hard" value="15">
+                <span class="slider"></span>
+                Très difficile</label>
+            </div>
+          </div>
+      </div>
+      <div class="header__small__down">
+        <div class="header__search">
+          <div class="header__search-button">
+            <input class="search-button" type="text" name="search" id="search" placeholder="Rechercher une rando"/>
+            <button class="search-submit" type="submit">✔️</button>
+          </div>
+        </div>
+      </div>
+    </div>

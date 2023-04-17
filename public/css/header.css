@@ -1,0 +1,380 @@
+input[type="checkbox"] { -webkit-appearance: checkbox; }
+input[type="radio"] { -webkit-appearance: radio; }
+
+
+/* === === Menu large === === */
+.navbar-fixed {
+    position: 'fixed';
+top: "0";
+opacity: '0.7';
+z-index: 5;
+}
+/* === Container === */
+.header__large {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 99vw; /* Largeur de toute la page */
+    height: 12vh;
+    background-color: #242325;
+    color : burlywood;
+    font-weight: 700;
+}
+.header_up, .header_down {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 6vh;
+}
+.header_down {
+    border-top: 1px dotted burlywood;
+    /* justify-content: center; */
+}
+
+/* == Barre supérieur */
+.header__left, .header__right {
+    display: flex;
+    align-items: center;
+    margin: 0 1%;
+    width: 45%;
+    height: 6vh;
+}
+.header__left { 
+    justify-content: left;
+}
+.header__right {
+    justify-content: right;
+}
+
+/* == Lien du menu supérieur == */
+.header__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2%;
+    width: 25%;
+    height: 65%;
+    border: 1px solid burlywood;
+    border-radius: 25px;
+    text-align: center;
+}
+.header__link:visited {
+color: burlywood;
+}
+/* == Lien du menu inférieur == */
+.search_link {
+    width: 20%
+}
+
+/* == Menu recherche == */
+/* = Bloc recherche = */
+.header__search {
+    position: relative;
+}
+/* = Bouton recherche = */
+.search-button { /* Bouton recherche */
+    padding-left: 10px;
+    width: 100%;   /* Largeur du bouton */
+    height: 4vh;    /* Hauteur du bouton*/
+    border-radius: 20px;    /* Bords arrondis */
+    border: 0.5px solid transparent;
+    text-align: left; /* Placeholder à gauche */
+}
+/* = Bouton valider = */
+.search-submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    border: 0.5px solid transparent;
+    border-radius: 50%; /* Arrondi le bouton */
+} 
+
+/* === Menu déroulant === */
+/* == Liens du menu déroulant == */
+.dropdown {
+    display: block;      /* Caché par défaut */
+    position: absolute; /* Position absolu par rapport à son parent (header__menu-dropdown) */
+    top:110%;           /* 100% plus bas que son parent, donc juste dessous le lien */
+    padding: 15px 15px 0 15px; /* Permet surtout de rapprocher les coches du textes dans les liens en display flex */
+    width: 100%;        /* Fait la largeur du lien dessus */
+    z-index: 1;         /* Au dessus de tout le reste quand display none disparu */
+    background-color: #242325; /* Couleur de fond */
+    border-radius: 15px;
+}
+/* = Bouton "tag" et "difficulte" = */
+.dropdown__link {
+    width: 25%;         /* Largeur du bouton */
+    height: 65%;        /* Hauteur du bouton */
+    border: 1px solid burlywood;
+    border-radius: 25px;
+    font-weight: 700;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.dropdown__link:visited {
+    color: burlywood;
+}
+/* == Lien des boutons "tag" et "difficulté" */
+.hover__link {
+    display: flex;          /* Permet de centrer les textes */
+    align-items: center;
+    justify-content: center;
+    width: 100%;            /* Le lien prend toute la cellule */
+    height: 110%;
+    color: burlywood;
+  }
+.dropdown label:hover {
+    color: white;
+}
+/* == Positionnement des liens du menu déroulant == */
+.dropdown label {
+    display: flex;          /* Permet de positionner les coches et textes sur la gauche */
+    justify-content: left;
+    margin-bottom: 10px;
+  }
+
+/* = Coches bouton checkbox et radio = */
+label { /* Permet de gerer le placement des coches plus tard */
+    position: relative;
+    display: grid;
+}
+input[type="checkbox"], input[type="radio"] {
+    opacity: 0;             /* On masque les boutons par défaut */
+    margin-right: 15px;     /* Ecarte le texte du bouton radio */
+}
+.type-end { /* Fin de la partie radio */
+    padding-top: 7px;
+    border-top: 1px dotted burlywood;
+}
+
+.header__menu_dropdown {
+    position: relative;     /* Le menu déroulant ne s'ouvre plus en désactivant */
+}
+
+.slider { /* Bouton coche personnalisé, avant le clic */
+    position: absolute;                     /* Position absolue de son parent, le switch */
+    content: "";                            /* Mettre un contenu vide pour faire apparaitre la coche */
+    height: 11px;                           /* Taille du bouton coche */
+    width: 11px;
+    border-radius: 50%;                     /* Le rendre arrondi */
+    top: 50%;                               /* Placement du bouton coche */
+    left: 0;
+    transform: translateY(-50%);
+    border: 2px solid burlywood;          /* Bordure du bouton coche */
+    background-color: #242325;            /* Couleur de fond du bouton coche */
+}
+
+input:checked + .slider { /* bouton coche checked */
+    background-color: burlywood;            /* Couleur de fond du bouton coche */
+}
+
+
+/* === Ouverture du menu déroulant === */
+.hover__link:hover + .dropdown, .dropdown:hover {
+    display: block;
+}
+
+/* === === Footer === === */
+footer {
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 8%;
+    min-height: 60px;
+    background-color: #242325;
+    font-weight: 700;
+    color: white;
+}
+.footer_link {
+    color: white;
+}
+
+/* === === LOCALS MESSAGE === === */
+.locals-message {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px 20px;
+    width: fit-content;
+    border-radius: 24px;
+    font-weight: 700;
+    color: white;
+}
+.error {
+    background-color: red;
+}
+.succes {
+    background-color: green;
+}
+
+/* === Media Query === */
+@media screen and (max-width: 775px) {  /* Jusqu'à 775px */
+/* === === Menu large === === */
+/* === Container === */
+.header__large {
+    display: none;
+}
+
+/* === === Menu small === === */
+/* === Menu burger === */
+/* == Menu latéral == */
+.header__small {
+    background-color: #242325;
+}
+.sidenav {
+    height: 100vh;                      /* Prend toute la hauteur */
+    width: 100vw;                       /* Prend toute la largeur */
+    position: fixed;                    /* Menu fixed */
+    z-index: 2;                         /* Menu par dessus tout le reste */
+    top: 0;                             /* Menu tout en haut */
+    left: -150vw;                       /* Menu caché par défaut */
+    background-color: #242325;        /* Couleur de fond */ 
+    padding-top: 5%rem;                 /* 5% de padding par rapport au top */
+    transition: left .7s ease-out;      /* Transition de 0.7s avec ralentissement à la fin */
+}
+/* = Position du menu ouvert = */
+.sidenav.active {
+    left: 0;
+}
+/* = Bouton de fermeture = */
+.sidenav .close {
+position: absolute;
+top: 0;
+right: 8%;
+font-size: 4rem;
+text-decoration: none;
+}
+.sidenav .close:visited {
+    color: burlywood;
+}
+/* = Placement des liens dans le burger = */
+.header__small__menus {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15%;
+    height: 70%;
+}
+/* = Lien du burger = */
+.header__small__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+    height: 45%;
+    border: 1px solid burlywood;
+    border-radius: 25px;
+    color: burlywood;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+.header__small__link:visited {
+    color: burlywood;
+}
+.small__menu__git, .small__menu__log {
+    width: 40%;
+}
+
+/* === Gestion de la barre supérieur */
+/* == Position barre supérieur == */
+.header__small__up {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto 10px;
+    height: 6vh;
+}
+
+/* == Apparence du bouton burger == */
+.burger-icon {
+    height: 3vh;
+    margin-right: 10px;
+}
+.burger-icon span {
+    display: block;
+    width: 2.5rem;
+    height: .5rem;
+    background-color: #717575;
+    margin: 15% 1%;
+}
+
+/* === Gestion de la barre inférieur */
+/* == Position barre inférieur == */
+.header__small__down {
+    height: 6vh;
+    border-bottom: 2px dotted #242325;
+}
+.header__search {
+    width: 60%;
+    margin: 3% auto;
+}
+/* === Recherche === */
+/* == Bouton "tag" et "difficulte" == */
+.small__dropdown__link {
+    width: 45%;
+    height: 4vh;
+    border: 1px solid burlywood;
+    border-radius: 25px;
+    color: burlywood;
+    font-weight: 700;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+/* === Locals === */
+.locals-message {
+    font-size: 0.7em;
+    padding: 20px 0;
+}
+}
+
+
+/* =============================================================== */
+@media screen and (min-width: 776px) {      /* Entre 776px et 1200px */
+/* === === Menu small === === */
+/* === Container === */
+.header__small {
+    display: none;
+}
+
+/* === === Menu large === === */
+/* === Container === */
+/* == Lien du menu supérieur == */
+.header__link {
+    font-size: 0.7em;
+}
+/* == Menu recherche == */
+/* = Bloc recherche = */
+.header__search {
+    width: 40vw;
+}
+/* = Bouton recherche = */
+.search-button { /* Bouton recherche */
+
+}
+}
+
+/* =============================================================== */
+@media screen and (min-width: 1200px) {      /* A partir de 1200px */
+/* === === Menu large === === */
+/* === Container === */
+/* == Lien du menu supérieur == */
+.header__link {
+        font-size: 0.9em;
+    }
+}
+
+
+
+
+
+
+
+

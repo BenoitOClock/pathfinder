@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+
+<div class="container-photos">
+    <h1 class="photos_title"><%= trek.name %></h1>
+    <div class="photos_tag_and_back">
+        <a class="photos_back" href="/trek/<%= trek.id %>">Retour au descriptif</a>
+        <div class="photos_tags">
+            <% trek.tags.forEach(tag => { %>
+                <p class="tag trek_tag <%= tag.name %>"><img class="tag_icone trek_tag_icone" src="/images/tags/<%= tag.name %>.png">  <%= tag.name %></p>
+                <% }) %>
+        </div>
+    </div>
+    <div class="photos_photos">
+        <% for (const photo of photos) { %>
+            <a href="/images/assets/<%= trek.id %>/L/<%= photo %>""><img class="photos_photo desktop-link photo-link" src="/images/assets/<%= trek.id %>/M/<%= photo %>" alt="Photo rando"></a>
+        <% } %>
+    </div>
+    <div class="photos_photos-bis">
+        <% for (const photo of photos) { %>
+            <a href="/images/assets/<%= trek.id %>/M/<%= photo %>"><img class="photos_photo mobile-link photo-link" src="/images/assets/<%= trek.id %>/XS/<%= photo %>" alt="Photo rando"></a>
+        <% } %>
+    </div>
+
+    <!-- Boîte de dialogue modale -->
+    <div id="myModal" class="modal">
+        <img id="modal-image" src="">
+        <div id="modal-background"></div>
+    </div>
+    <!-- Fin boîte de dialogue modale -->
+</div>
+
+<%- include('partials/footer') %>

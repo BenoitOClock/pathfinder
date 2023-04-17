@@ -1,0 +1,33 @@
+<%- include("../partials/header") %>
+
+<main>
+
+  <h1 class="admin_title">Inscription</h1>
+
+  <!-- ! On utilise la méthode locals si la condition du controller n'est pas remplie -->
+  <!-- ! Dans ce cas la, un champ n'est pas rempli -->
+  <!-- ! Et on affiche un encart avec le message d'alerte -->
+  <% if (locals.errorMessage) { %>
+    <div class="locals-message error">
+      <%= errorMessage %>
+    </div>
+  <% } %>
+  
+  
+    <form class="admin_form" action="/signup" method="POST">
+      <label class="form-label" for="firstname">Pseudo</label>
+      <input class="form-input" type="firstname" id="firstname" name="firstname" placeholder="Prénom">
+    
+      <label class="form-label" for="password">Mot de passe</label>
+      <input class="form-input" type="password" id="password" name="password" placeholder="*********">
+  
+      <label class="form-label" for="confirmation">Mot de passe</label>
+      <input class="form-input" type="password" id="confirmation" name="confirmation" placeholder="*********">
+      
+      <input class="form-button form-button-valid" type="submit" value="S'inscrire">
+    </form>
+  
+  </main>
+
+<%- include("../partials/footer") %>
+

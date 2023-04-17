@@ -1,0 +1,65 @@
+/* === === Page favoris et inscription/connexion === === */
+.container-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.admin_title {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+    margin: 4%;
+}
+.admin_text {
+    text-align: center;
+    font-size: 1.3em;
+    font-style: italic;
+    margin-top: 3%;
+    color: black;
+}
+
+.admin_form {
+    display: flex;
+    flex-direction: column;
+}
+.form-label {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+.form-input {
+    width: 35%;
+    height: 50px;
+    border-radius: 24px;
+    margin: 0 auto 2%;
+    text-align: center;
+    background-color: white;
+}
+
+.form-button {
+    width: 35%;
+    margin: 0 auto;
+    border-radius: 24px;
+    height: 50px;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+.form-button-valid {
+    background-color: burlywood;
+}
+.form-button-delete {
+    background-color: red;
+    color: white;
+}
+
+/* === === Erreur 404 === === */
+.admin_text > a:visited {
+    color: black;
+}
+
+.error_img {
+    display: block;
+    margin: 4% auto;
+    width: 40%;
+}

@@ -1,0 +1,70 @@
+<%- include('partials/header') %>
+
+<div class="container-trek">
+    <div class="trek_header">
+        <img class="trek_header-img" src="/images/assets/couverture/<%= trek.id %>.jpg" alt="">
+        <div class="header_tag">
+            <p class="trek_difficult <%= trek.difficulty.name %>"><%= trek.difficulty.name %></p>
+            <% for (const tag of trek.tags) { %>
+                <p class="tag trek_tag <%= tag.name %>"><img class="tag_icone trek_tag_icone" src="/images/tags/<%= tag.name %>.png">  <%= tag.name %></p>
+            <% } %>
+        </div>
+        <div class="trek_header-text">
+            <p class="trek_title"><%= trek.name %></p>
+        </div>
+        <% if (!session || !session.includes(trek.id)){ %>
+            <a href="/bookmark/add/<%= trek.id %>" class="header_favorite-icon"><img src="/images/trek/bookmark_empty.png" title="Ajouter aux favoris" alt="favori" srcset=""></a>
+        <% } else { %>
+            <a href="/bookmark/delete/<%= trek.id %>" class="header_favorite-icon"><img src="/images/trek/bookmark_full.png" title="Retirer des favoris" alt="favori" srcset=""></a>
+        <% } %>
+    </div>
+    <p class="trek_localisation"><%= trek.summit.name %> > <%= trek.start_point %></p>
+    <div class="trek_main">
+        <div class="trek_main-text">
+            <div class="trek_main-text">
+                <div class="trek_main-text-head">
+                    <p class="main-text-head_length"><img src="/images/trek/distance.png" alt="regle"><%= trek.distance / 1000%> km</p>
+                    <p class="main-text-head_time-length"><img src="/images/trek/chronometre.png" alt="regle"><%= trek.time_length %></p>
+                    <p class="main-text-head_boucle"><img src="/images/trek/boucle.png" alt="boucle"> <%= trek.boucle %></p>
+                    <p class="main-text-head_denivele"><img src="/images/trek/denivele.png" alt="dénivelé"><%= trek.denivele %>m D+</p>
+                    <p class="main-text-head_min"><img src="/images/trek/min_altitude.png" alt="altitude mini"><%= trek.min_height %>m Min</p>
+                    <p class="main-text-head_max"><img src="/images/trek/max_altitude.png" alt="altitude maxi"><%= trek.max_height %>m Max</p>
+                </div>
+                <p class="trek_main-text_title-description">Description :</p>
+                <p class="trek_main-text_description"><%= trek.description %></p>
+            </div>
+            <div class="trek_main-foot">
+                <p class="trek_foot_gps"><img src="/images/trek/gps.png" alt="gps"><%= trek.gps_coordonate %></p>
+                <a class="trek_foot_gpx-link" href="<%= trek.gpx %>"><img class="trek_foot_gpx-img" src="/images/trek/download.png" alt="download">Fichier gpx</a>
+                <a class="trek_foot_qr-link"><img src="/images/assets/qr/<%= trek.id %>.png" alt="qr code"></a>
+
+            </div>
+            <div class="main-foot_map">
+                <iframe src="<%= trek.map %>" allowfullscreen style="border: 0;width: 100%; height: 540px;" scrolling="no"></iframe>               
+            </div>
+        </div>
+        <aside class="trek_main_photos">
+            <a class="main_photos_link" href="/trek/<%= trek.id %>/photos">Voir toutes les photos</a>
+            <div class="main_photos">
+                <% for (const photo of photos) { %>
+                    <a href="/images/assets/<%= trek.id %>/L/<%= photo %>"><img class="main_photos_photo desktop-link photo-link" src="/images/assets/<%= trek.id %>/XS/<%= photo %>" alt="Photo rando"></a>
+                <% } %>
+            </div>
+            <div class="main_photos-bis">
+                <% for (const photo of photos) { %>
+                    <a href="/images/assets/<%= trek.id %>/M/<%= photo %>"><img class="main_photos_photo mobile-link photo-link" src="/images/assets/<%= trek.id %>/XS/<%= photo %>" alt="Photo rando"></a>
+                <% } %>
+            </div>
+
+            <!-- Boîte de dialogue modale -->
+            <div id="myModal" class="modal">
+                <img id="modal-image" src="">
+                <div id="modal-background"></div>
+            </div>
+            <!-- Fin boîte de dialogue modale -->
+        </aside>
+    </div>
+</div>
+
+
+<%- include('partials/footer') %>
