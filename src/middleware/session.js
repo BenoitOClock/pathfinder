@@ -2,7 +2,13 @@ const session = require('express-session');
 const pgSession = require('connect-pg-simple')(session);
 const { Pool } = require('pg');
 
-const pool = new Pool(process.env.DATABASE_URL);
+const pool = new Pool({
+  password: process.env.PGPASSWORD,
+  user: process.env.PGUSER,
+  host: process.env.PGHOST,
+  port: process.env.PGPORT,
+  database: process.env.PGDATABASE,
+});
 pool.connect();
 
 const sessionMiddleware = session({
